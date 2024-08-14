@@ -1,20 +1,4 @@
-<h1>User info</h1>
-<%= image_tag current_user.get_profile_image %>
-<%= current_user.name %>
-<% if current_user.respond_to?(:introduction) && current_user.introduction.present? %>
-  <p><%= current_user.introduction %></p>
-<% end %>
-<p><%= link_to "プロフィール編集",  edit_user_path(current_user) %></p>
-
-<h1>New book</h1>
-<%= form_with model: @book do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
-
+<%= render 'shared/userinfoNewbook' %>
 
 <h1>Books</h1>
 
