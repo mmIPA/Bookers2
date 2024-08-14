@@ -1,11 +1,23 @@
-<%= render 'shared/userinfoNewbook' %>
+<div class="row">
+  <div class="col-3">
+    <%= render 'shared/userinfoNewbook' %>
+  </div>
 
-<h1>Users</h1>
-
-<% @users.each do |user| %>
- <%= image_tag user.get_profile_image(100,100) %>
- <%= user.name %>
-
- <%= link_to "show", user_path(user.id) %>
-
-<% end %>
+<div class="col-9">
+  <h1>Users</h1>
+    <table class="table">
+      <tr>
+        <th>image</th>
+        <th>name</th>
+      </tr>
+      
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(100,100) %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "show", user_path(user.id) %></td>
+      </tr>
+    <% end %>
+  </table>
+ </div>
+</div>

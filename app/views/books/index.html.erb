@@ -1,13 +1,23 @@
-<%= render 'shared/userinfoNewbook' %>
+<div class="row">
+  <div class="col-3">
+    <%= render 'shared/userinfoNewbook' %>
+  </div>
 
-<h1>Books</h1>
-
-<% @books.each do |book| %>
-
-<p>
-  <%= image_tag book.user.get_profile_image %>
-  <%= book.title %>
-  <%= book.body %>
-</p>
-
-<% end %>
+  <div class="col-9">
+    <h1>Books</h1>
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= image_tag book.user.get_profile_image %></td>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+        </tr>
+      <% end %>
+      </table>
+  </div>
+</div>

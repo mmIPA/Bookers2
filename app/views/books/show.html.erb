@@ -1,10 +1,24 @@
-<%= render 'shared/userinfoNewbook' %>
+<div class="row">
+  <div class="col-3">
+    <%= render 'shared/userinfoNewbook' %>
+  </div>
 
-<h1>Books</h1>
-
-<%= @book.title %>
-<%= @book.body %>
-<%= @book.user.name %>
-
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: "本当に消しますか？" } %>
+<div class="col-md-8 offset-md-1">
+  <h1>Book detail</h1>
+  
+  <table class="table">
+    <tr>
+      <td>
+        <%= link_to user_path(@user.id) do %>
+        <%= image_tag @user.get_profile_image(100,100) %><br>
+        <%= @book.user.name %>
+        <% end %>
+      </td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
+      <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: "本当に消しますか？" } %></td>
+    </tr>
+  </table>
+  </div>
+</div>
