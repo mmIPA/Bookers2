@@ -27,43 +27,43 @@
          <% if user_signed_in? %>
           <ul class="navbar-nav  ml-auto">
            <li class="nav-item active mx-auto p-2">
-            <%= link_to user_path(current_user) do %>
+            <%= link_to user_path(current_user), style: "color: white;" do %>
             <i class="fa-solid fa-house"></i>Home
             <% end %>
            <li/>
            <li class="nav-item active mx-auto p-2">
-            <%= link_to users_path do %>
+            <%= link_to users_path, style: "color: white;" do %>
             <i class="fa-solid fa-users"></i>Users
             <% end %>
            </li>
            <li class="nav-item active mx-auto p-2">
-            <%= link_to books_path do %>
+            <%= link_to books_path, style: "color: white;" do %>
             <i class="fa-solid fa-book-open"></i>Books
             <% end %>
            </li>
            <li class="nav-item active mx-auto p-2">
-            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= link_to destroy_user_session_path, method: :delete, style: "color: white;" do %>
             <i class="fa-solid fa-right-from-bracket"></i>Log out
             <% end %>
            </li>
          <% else %>
-          <li class="nav-item active mx-auto">
-            <%= link_to root_path do %>
+          <li class="nav-item active mx-auto p-2">
+            <%= link_to root_path, style: "color: white;" do %>
             <i class="fa-solid fa-house"></i>Home
             <% end %>
           </li>
-          <li class="nav-item active mx-auto">
-            <%= link_to about_path do %>
+          <li class="nav-item active mx-auto p-2">
+            <%= link_to about_path, style: "color: white;" do %>
             <i class="fa-solid fa-link"></i>About
             <% end %>
           </li>
-          <li class="nav-item active mx-auto">
-            <%= link_to new_user_registration_path do %>
+          <li class="nav-item active mx-auto p-2">
+            <%= link_to new_user_registration_path, style: "color: white;" do %>
             <i class="fa-solid fa-user-plus"></i>Sign up
             <% end %>
           </li>
-          <li class="nav-item active mx-auto">
-            <%= link_to new_user_session_path do %>
+          <li class="nav-item active mx-auto p-2">
+            <%= link_to new_user_session_path, style: "color: white;" do %>
             <i class="fa-solid fa-right-to-bracket"></i>Log in
             <% end %>
           </li>

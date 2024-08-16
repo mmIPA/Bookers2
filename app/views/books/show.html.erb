@@ -1,3 +1,4 @@
+<%= flash[:notice] %>
 <div class="row">
   <div class="col-3">
     <%= render 'shared/userinfoNewbook' %>
@@ -11,7 +12,7 @@
       <td>
         <%= link_to user_path(@user.id) do %>
         <%= image_tag @user.get_profile_image(100,100) %><br>
-        <%= @book.user.name %>
+        <%= link_to @book.user.name, user_path(@user.id) %>
         <% end %>
       </td>
       <td><%= @book.title %></td>
