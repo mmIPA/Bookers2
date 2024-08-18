@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = current_user.books
+    @user = current_user
   end
 
   def new
@@ -27,7 +28,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
-    flash[:notice] = "You have updated book successfully."
+    flash[:notice] = "You have created book successfully."
   end
   
   def update

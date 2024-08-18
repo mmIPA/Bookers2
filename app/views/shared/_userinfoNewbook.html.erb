@@ -1,12 +1,15 @@
 <h1>User info</h1>
-<%= image_tag current_user.get_profile_image %>
+<%= image_tag @user.get_profile_image %>
 <table class="table">
-<tr><th>name</th><th><%= current_user.name %></th></tr>
-<tr><th>introduction</th><th><% if current_user.respond_to?(:introduction) && current_user.introduction.present? %>
-  <p><%= current_user.introduction %></p>
-<% end %></th></tr>
+  <tr><th>name</th><th><%= @user.name %></th></tr>
+  <tr><th>introduction</th><th>
+    <% if @user.respond_to?(:introduction) && @user.introduction.present? %>
+    <p><%= @user.introduction %></p>
+    <% end %>
+  </th></tr>
 </table>
-<p><%= link_to edit_user_path(current_user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
+
+<p><%= link_to edit_user_path(@user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
 <i class="fa-solid fa-user-gear"></i>
 <% end%></p>
 
