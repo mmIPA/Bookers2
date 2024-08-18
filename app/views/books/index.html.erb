@@ -1,23 +1,25 @@
-<div class="row">
-  <div class="col-3">
-    <%= render 'shared/userinfoNewbook' %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'shared/userinfoNewbook' %>
+  　</div>
 
-  <div class="col-9">
-    <h1>Books</h1>
-      <table class="table">
-        <tr>
-          <th></th>
-          <th>Title</th>
-          <th>Opinion</th>
-        </tr>
-      <% @books.each do |book| %>
-        <tr>
-          <td><%= image_tag book.user.get_profile_image %></td>
-          <td><%= book.title %></td>
-          <td><%= book.body %></td>
-        </tr>
-      <% end %>
-      </table>
+    <div class="offset-md-1,col-md-8">
+      <h1>Books</h1>
+        <table class="table">
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image %></td>
+            <td><%= link_to book.title, book_path(book) %></td>
+            <td><%= book.body %></td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
   </div>
 </div>

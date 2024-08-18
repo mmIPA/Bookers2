@@ -1,9 +1,10 @@
-<div class="row">
-  <div class="col-3">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
     <%= render 'shared/userinfoNewbook' %>
-  </div>
+    </div>
 
-<div class="col-9">
+  <div class="col-md-8 offset-md-1">
   <h1>Users</h1>
     <table class="table">
       <tr>
@@ -18,6 +19,7 @@
         <td><%= link_to "show", user_path(user.id) %></td>
       </tr>
     <% end %>
-  </table>
- </div>
+    </table>
+    </div>
+  </div>
 </div>

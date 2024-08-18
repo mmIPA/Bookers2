@@ -1,11 +1,12 @@
 <%= flash[:notice] %>
 
-<div class="row">
-  <div class="col-3">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
     <%= render 'shared/userinfoNewbook' %>
   </div>
   
-  <div class="col-9">
+  <div class="col-md-8 offset-md-1">
     <h1>Books</h1>
     <table class="table">
       <tr>
@@ -20,6 +21,7 @@
         </tr>
         <% end %>
     </table>
+    </div>
   </div>
 </div>
  
