@@ -9,9 +9,15 @@
   </th></tr>
 </table>
 
-<p><%= link_to edit_user_path(@user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
-<i class="fa-solid fa-user-gear"></i>
-<% end%></p>
+<% if @user == current_user %>
+  <p><%= link_to edit_user_path(@user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
+  <i class="fa-solid fa-user-gear"></i>
+    <% end%></p>
+<% else %>
+  <p><%= link_to user_path(current_user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
+  <i class="fa-solid fa-user-gear"></i>
+<% end %></p>
+<% end %>
 
 <h1>New book</h1>
 
@@ -26,8 +32,8 @@
 
 <%= form_with model: @book do |f| %>
   <h4>Title</h4>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, value: '' %>
   <h4>Opinion</h4>
-  <%= f.text_area :body %><br>
+  <%= f.text_area :body, value: '' %><br>
   <%= f.submit "Create Book", class:"btn btn-success" %>
 <% end %>
