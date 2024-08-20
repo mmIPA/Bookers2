@@ -9,15 +9,9 @@
   </th></tr>
 </table>
 
-<% if @user == current_user %>
   <p><%= link_to edit_user_path(@user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
   <i class="fa-solid fa-user-gear"></i>
-    <% end%></p>
-<% else %>
-  <p><%= link_to user_path(current_user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
-  <i class="fa-solid fa-user-gear"></i>
 <% end %></p>
-<% end %>
 
 <h1>New book</h1>
 
