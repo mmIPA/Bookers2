@@ -1,33 +1,35 @@
-<h1>User info</h1>
-<%= image_tag @user.get_profile_image %>
-<table class="table">
-  <tr><th>name</th><th><%= @user.name %></th></tr>
-  <tr><th>introduction</th><th>
-    <% if @user.respond_to?(:introduction) && @user.introduction.present? %>
-    <p><%= @user.introduction %></p>
-    <% end %>
-  </th></tr>
-</table>
-
-  <p><%= link_to edit_user_path(@user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
-  <i class="fa-solid fa-user-gear"></i>
-<% end %></p>
-
-<h1>New book</h1>
-
-<% if @book.errors.any? %>
-  error!!<%= @book.errors.count %>件のエラーが発生しました
+<% if book.errors.any? %>
+  <%= book.errors.count %>errors prohibited this obj from being saved:
   <ul>
-    <% @book.errors.full_messages.each do |message| %>
+    <% book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
 
-<%= form_with model: @book do |f| %>
+<h1>User info</h1>
+<%= image_tag user.get_profile_image %>
+<table class="table">
+  <tr><th>name</th><th><%= user.name %></th></tr>
+  <tr><th>introduction</th><th>
+    <% if user.respond_to?(:introduction) && user.introduction.present? %>
+    <p><%= user.introduction %></p>
+    <% end %>
+  </th></tr>
+</table>
+
+  <p><%= link_to edit_user_path(user),style: 'display: inline-block; border: 1px solid #d3d3d3; border-radius: 5px; width: 100%; text-align: center;' do %>
+  <i class="fa-solid fa-user-gear"></i>
+<% end %></p>
+
+<h1>New book</h1>
+
+
+
+<%= form_with model: book do |f| %>
   <h4>Title</h4>
-  <%= f.text_field :title, value: '' %>
+  <%= f.text_field :title %>
   <h4>Opinion</h4>
-  <%= f.text_area :body, value: '' %><br>
+  <%= f.text_area :body %><br>
   <%= f.submit "Create Book", class:"btn btn-success" %>
 <% end %>
